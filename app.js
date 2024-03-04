@@ -18,10 +18,7 @@ function sortear(){
     }
 
     exibirResultado(quantidadeDeNumeros, listaNumeros);
-
-    let botaoReiniciar = document.querySelector('.container__botao-desabilitado');
-    botaoReiniciar.style.cursor = 'pointer';
-    botaoReiniciar.style.background = '#1875E8'
+    statusDoBotao('pointer', '#1875E8');
 
     listaNumeros = [];
 }
@@ -48,12 +45,15 @@ function limparCampos(){
     });
 }
 
+function statusDoBotao(valorCursor, valorBackground){
+    let botaoReiniciar = document.querySelector('.container__botao-desabilitado');
+    botaoReiniciar.style.cursor = valorCursor;
+    botaoReiniciar.style.background = valorBackground;
+}
+
 function reiniciar(){
     listaNumeros.length = 0;
     exibirResultado(0, []);
-
     limparCampos();
-    let botaoReiniciar = document.querySelector('.container__botao-desabilitado');
-    botaoReiniciar.style.cursor = 'not-allowed';
-    botaoReiniciar.style.background = '#6f6f70';
+    statusDoBotao('not-allowed', '#6f6f70');
 }
